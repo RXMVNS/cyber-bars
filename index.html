@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cyberjapan Ultrawide Overlay</title>
+  <title>Cyberjapan Ultrawide Pixel Cloud Overlay</title>
   <style>
     * {
       box-sizing: border-box;
@@ -24,7 +24,7 @@
       width: 100%;
       height: 140px; /* ADJUST THIS PIXEL VALUE to match your black bar thickness */
       overflow: hidden;
-      background: rgba(8, 5, 15, 0.94); /* Deep retro synth cockpit backing */
+      background: rgba(8, 5, 15, 0.96); /* Deep retro synth cockpit backing */
       pointer-events: none;
     }
 
@@ -60,33 +60,68 @@
       height: 100%;
     }
 
-    /* PURE CSS GENERATED PIXEL ART CLOUDS */
+    /* --- AUTHENTIC 8-BIT RETRO PIXEL ART CLOUD RE-BUILD --- */
+    
+    /* Foreground Layer: Bright Cyber Neon Cloud Clusters with Shadow Lining */
     .clouds-foreground {
-      /* Fast Foreground Layer: Interlaced Hot Pink & Cyber Cyan pixel cloud stacks */
       background-image: 
-        radial-gradient(circle, #ff007f 10px, transparent 10px),
-        radial-gradient(circle, #ff007f 14px, transparent 14px),
-        radial-gradient(circle, #00f0ff 8px, transparent 8px),
-        radial-gradient(circle, #00f0ff 12px, transparent 12px);
-      background-size: 140px 80px, 180px 95px, 200px 85px, 160px 75px;
-      background-position: 40px 60px, 200px 50px, 300px 55px, 440px 45px;
-      image-rendering: pixelated; /* Directs browser graphics card to keep lines sharp */
-      opacity: 0.45;
+        /* --- CLOUD BASE 1 (Hot Pink Highlights with Deep Purple Shadows) --- */
+        linear-gradient(#ff007f, #ff007f), linear-gradient(#ff007f, #ff007f), linear-gradient(#ff007f, #ff007f),
+        linear-gradient(#4d0066, #4d0066), linear-gradient(#4d0066, #4d0066),
+        
+        /* --- CLOUD BASE 2 (Cyber Cyan Highlights with Deep Indigo Shadows) --- */
+        linear-gradient(#00f0ff, #00f0ff), linear-gradient(#00f0ff, #00f0ff), linear-gradient(#00f0ff, #00f0ff),
+        linear-gradient(#002b4d, #002b4d), linear-gradient(#002b4d, #002b4d);
+
+      /* Sets the blocky pixel dimensions for individual cloud segments */
+      background-size: 
+        /* Cloud 1 Pink Highlights */
+        60px 40px, 90px 50px, 50px 30px,
+        /* Cloud 1 Purple Base Shadows */
+        140px 35px, 80px 20px,
+        
+        /* Cloud 2 Cyan Highlights */
+        70px 35px, 100px 45px, 60px 25px,
+        /* Cloud 2 Blue Base Shadows */
+        160px 30px, 90px 20px;
+
+      /* Clusters the pixel blocks tightly to shape organic, fluffy retro clouds */
+      background-position: 
+        /* Cloud 1 Layout Positions */
+        100px 40px, 130px 25px, 200px 45px,
+        80px 65px, 160px 75px,
+        
+        /* Cloud 2 Layout Positions */
+        500px 35px, 540px 20px, 610px 40px,
+        480px 60px, 570px 70px;
+        
+      background-repeat: repeat-x;
+      image-rendering: pixelated; /* Crucial: Locks browser into sharp 8-bit rendering mode */
+      opacity: 0.65;
       z-index: 2;
-      animation: driftLeft 26s linear infinite; /* Crawl rate velocity for top layers */
+      animation: driftLeft 32s linear infinite; /* Medium drift speed */
     }
 
+    /* Background Layer: Distant, Deep Purple Cloud Silhouette Formations */
     .clouds-background {
-      /* Slow Background Layer: Deep Cyber Purples tucked to create depth dimensions */
       background-image: 
-        radial-gradient(circle, #9933ff 12px, transparent 12px),
-        radial-gradient(circle, #9933ff 18px, transparent 18px);
-      background-size: 240px 100px, 320px 110px;
-      background-position: 0px 40px, 120px 30px;
+        /* --- BACKGROUND DISTANT CLOUD CLUSTERS --- */
+        linear-gradient(#260033, #260033), linear-gradient(#260033, #260033), linear-gradient(#260033, #260033),
+        linear-gradient(#39004d, #39004d), linear-gradient(#39004d, #39004d);
+        
+      background-size: 
+        100px 50px, 150px 70px, 80px 40px,
+        220px 40px, 120px 30px;
+        
+      background-position: 
+        250px 20px, 300px 5px, 420px 25px,
+        200px 55px, 360px 65px;
+        
+      background-repeat: repeat-x;
       image-rendering: pixelated;
-      opacity: 0.25;
+      opacity: 0.4;
       z-index: 1;
-      animation: driftLeft 55s linear infinite; /* Slower drift rate to capture parallax */
+      animation: driftLeft 70s linear infinite; /* Slower parallax drift rate */
     }
 
     /* INVERTS DRIFT DIRECTION ON THE LOWER BAR FOR ADVANCED SCREEN RHYTHM */
@@ -96,8 +131,8 @@
 
     /* --- INFINITE PARALLAX LOOP ENGINE --- */
     @keyframes driftLeft {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); } /* Resets seamlessly mid-stride */
+      from { background-position-x: 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px; }
+      to { background-position-x: -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px; } /* Clean, infinite scrolling loop reset */
     }
   </style>
 </head>
