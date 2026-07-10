@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cyberjapan Ultrawide Pixel Cloud Overlay</title>
+  <title>Cyberjapan Ultrawide CRT Static Overlay</title>
   <style>
     * {
       box-sizing: border-box;
@@ -24,115 +24,63 @@
       width: 100%;
       height: 140px; /* ADJUST THIS PIXEL VALUE to match your black bar thickness */
       overflow: hidden;
-      background: rgba(8, 5, 15, 0.96); /* Deep retro synth cockpit backing */
+      background: rgba(6, 4, 12, 0.96); /* Deep retro synth cockpit backing */
       pointer-events: none;
     }
 
     .top-bar {
       top: 0;
       border-bottom: 5px solid #ff007f; /* Glowing cyber pink neon bottom edge deck line */
-      box-shadow: 0px 6px 20px rgba(255, 0, 127, 0.45);
+      box-shadow: 0px 6px 22px rgba(255, 0, 127, 0.5);
     }
 
     .bottom-bar {
       bottom: 0;
       border-top: 5px solid #00f0ff; /* Glowing cyber cyan neon top edge deck line */
-      box-shadow: 0px -6px 20px rgba(0, 240, 255, 0.45);
+      box-shadow: 0px -6px 22px rgba(0, 240, 255, 0.5);
     }
 
-    /* THE HOLOGRAM CRT MONITOR SCANLINE FILTER */
-    .cyber-bar::before {
+    /* --- PURE CSS HARDWARE TV STATIC ENGINE --- */
+    /* Generates high-velocity pixel artifacts via mathematical sub-pixel layout loops */
+    .static-noise-layer {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      width: 200%;
+      height: 200%;
+      
+      /* Injects contrasting micro-gradients to form grainy data noise grids */
+      background: 
+        repeating-radial-gradient(rgba(0, 240, 255, 0.15) 0 0.0001%, rgba(8, 5, 15, 0.4) 0 0.0002%) 50% 0/2000px 2000px,
+        repeating-conic-gradient(rgba(255, 0, 127, 0.15) 0 0.0001%, rgba(0, 0, 0, 0.5) 0 0.0002%) 60% 60%/2000px 2000px;
+      background-blend-mode: difference;
+      
+      /* Rapid glitch interval frame loops to mimic old broadcast signals */
+      animation: televisionFuzzGlitch 0.15s infinite alternate;
+      opacity: 0.65;
+    }
+
+    /* THE HOLOGRAM CRT MONITOR HORIZONTAL SCANLINE GRID FILTER */
+    .cyber-bar::after {
       content: " ";
       display: block;
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 240, 255, 0.08) 50%);
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 240, 255, 0.12) 50%);
       z-index: 5;
-      background-size: 100% 4px;
+      background-size: 100% 4px; /* Crisp 4px processing lines across bars */
     }
 
-    /* INFINITE TRANSITION DRIFT CONTAINERS */
-    .cloud-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%; /* Spans double-wide to allow loop resetting behind view edges */
-      height: 100%;
-    }
-
-    /* --- AUTHENTIC 8-BIT RETRO PIXEL ART CLOUD RE-BUILD --- */
-    
-    /* Foreground Layer: Bright Cyber Neon Cloud Clusters with Shadow Lining */
-    .clouds-foreground {
-      background-image: 
-        /* --- CLOUD BASE 1 (Hot Pink Highlights with Deep Purple Shadows) --- */
-        linear-gradient(#ff007f, #ff007f), linear-gradient(#ff007f, #ff007f), linear-gradient(#ff007f, #ff007f),
-        linear-gradient(#4d0066, #4d0066), linear-gradient(#4d0066, #4d0066),
-        
-        /* --- CLOUD BASE 2 (Cyber Cyan Highlights with Deep Indigo Shadows) --- */
-        linear-gradient(#00f0ff, #00f0ff), linear-gradient(#00f0ff, #00f0ff), linear-gradient(#00f0ff, #00f0ff),
-        linear-gradient(#002b4d, #002b4d), linear-gradient(#002b4d, #002b4d);
-
-      /* Sets the blocky pixel dimensions for individual cloud segments */
-      background-size: 
-        /* Cloud 1 Pink Highlights */
-        60px 40px, 90px 50px, 50px 30px,
-        /* Cloud 1 Purple Base Shadows */
-        140px 35px, 80px 20px,
-        
-        /* Cloud 2 Cyan Highlights */
-        70px 35px, 100px 45px, 60px 25px,
-        /* Cloud 2 Blue Base Shadows */
-        160px 30px, 90px 20px;
-
-      /* Clusters the pixel blocks tightly to shape organic, fluffy retro clouds */
-      background-position: 
-        /* Cloud 1 Layout Positions */
-        100px 40px, 130px 25px, 200px 45px,
-        80px 65px, 160px 75px,
-        
-        /* Cloud 2 Layout Positions */
-        500px 35px, 540px 20px, 610px 40px,
-        480px 60px, 570px 70px;
-        
-      background-repeat: repeat-x;
-      image-rendering: pixelated; /* Crucial: Locks browser into sharp 8-bit rendering mode */
-      opacity: 0.65;
-      z-index: 2;
-      animation: driftLeft 32s linear infinite; /* Medium drift speed */
-    }
-
-    /* Background Layer: Distant, Deep Purple Cloud Silhouette Formations */
-    .clouds-background {
-      background-image: 
-        /* --- BACKGROUND DISTANT CLOUD CLUSTERS --- */
-        linear-gradient(#260033, #260033), linear-gradient(#260033, #260033), linear-gradient(#260033, #260033),
-        linear-gradient(#39004d, #39004d), linear-gradient(#39004d, #39004d);
-        
-      background-size: 
-        100px 50px, 150px 70px, 80px 40px,
-        220px 40px, 120px 30px;
-        
-      background-position: 
-        250px 20px, 300px 5px, 420px 25px,
-        200px 55px, 360px 65px;
-        
-      background-repeat: repeat-x;
-      image-rendering: pixelated;
-      opacity: 0.4;
-      z-index: 1;
-      animation: driftLeft 70s linear infinite; /* Slower parallax drift rate */
-    }
-
-    /* INVERTS DRIFT DIRECTION ON THE LOWER BAR FOR ADVANCED SCREEN RHYTHM */
-    .bottom-bar .cloud-layer {
-      animation-direction: reverse !important; /* Forces bottom clouds to drift right */
-    }
-
-    /* --- INFINITE PARALLAX LOOP ENGINE --- */
-    @keyframes driftLeft {
-      from { background-position-x: 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px, 0px; }
-      to { background-position-x: -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px, -800px; } /* Clean, infinite scrolling loop reset */
+    /* --- RAPID ANALOG SIGNAL NOISE GENERATION LOOP --- */
+    @keyframes televisionFuzzGlitch {
+      0% { transform: translate(0, 0) scale(1); background-position: 50% 0, 60% 50%; }
+      20% { transform: translate(-1px, 2px) scale(1.02); }
+      40% { transform: translate(2px, -1px) scale(0.99); background-position: 40% 10%, 70% 30%; }
+      60% { transform: translate(-2px, -2px) scale(1.01); }
+      80% { transform: translate(1px, 1px) scale(1); background-position: 30% 5%, 50% 40%; }
+      100% { transform: translate(-1px, -1px) scale(1.03); background-position: 55% 2%, 65% 48%; }
     }
   </style>
 </head>
@@ -140,14 +88,12 @@
 
   <!-- Top Ultrawide Overlay Bar Frame -->
   <div class="cyber-bar top-bar">
-    <div class="cloud-layer clouds-background"></div>
-    <div class="cloud-layer clouds-foreground"></div>
+    <div class="static-noise-layer"></div>
   </div>
 
   <!-- Bottom Ultrawide Overlay Bar Frame -->
   <div class="cyber-bar bottom-bar">
-    <div class="cloud-layer clouds-background"></div>
-    <div class="cloud-layer clouds-foreground"></div>
+    <div class="static-noise-layer"></div>
   </div>
 
 </body>
